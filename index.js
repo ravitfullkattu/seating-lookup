@@ -41,15 +41,15 @@ app.get('/api/people', async (req, res) => {
 
   try {
     const result = await pool.query(`
-      SELECT "firstName", "lastName", "tableNumber"
+      SELECT seating."firstName", seating."lastName", seating."tableNumber"
       FROM seating
-      WHERE "firstName" ILIKE $1 OR "lastName" ILIKE $1
-      ORDER BY "lastName" ASC
+      WHERE seating."firstName" ILIKE $1 OR seating."lastName" ILIKE $1
+      ORDER BY seating."lastName" ASC
     `, [`%${name}%`]);
     res.json(result.rows);
   } catch (err) {
-    console.error('Database query failed:', err);
-    res.status(500).json({ error: 'Database query failed' });
+    console.error('Database select query failed:', err);
+    res.status(500).json({ error: 'Database select query failed' });
   }
 });
 
