@@ -41,7 +41,7 @@ app.get('/api/people', async (req, res) => {
 
   try {
     const result = await pool.query(`
-      SELECT firstName, lastName, tableumber
+      SELECT firstName, lastName, tablenumber
       FROM seating
       WHERE firstname ILIKE $1 OR lastname ILIKE $1
       ORDER BY lastame ASC
