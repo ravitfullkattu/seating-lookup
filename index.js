@@ -33,6 +33,27 @@ app.get('/api/test', async (req, res) => {
     res.status(500).json({ error: 'Database connection failed' });
   }
 });
+// Create table endpoint
+app.post('/api/create-table', async (req, res) => {
+  const createTableQuery = `
+    CREATE TABLE IF NOT EXISTS seating (
+      id SERIAL PRIMARY KEY,
+      "firstname" VARCHAR(50) NOT NULL,
+      "lastname" VARCHAR(50) NOT NULL,
+      "tablenumber" INT NOT NULL,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+  `;
+
+  try {
+    // Execute the query to create the table
+    await pool.query(createTableQuery);
+    res.status(200).json({ message: 'Table "seating" created successfully!' });
+  } catch (err) {
+    console.error('Error creating table:', err);
+    res.status(500).json({ error: 'Error creating table: ' + err.message });
+  }
+});
 
 // Search by Name
 app.get('/api/people', async (req, res) => {
@@ -73,4 +94,5 @@ app.get('/api/table/:tableNumber', async (req, res) => {
 });
 
 const port = process.env.PORT || 3000;
+
 app.listen(port, () => console.log(`Server running on port ${port}`));
