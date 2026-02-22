@@ -63,7 +63,7 @@ app.get('/api/insert-data', async (req, res) => {
   const insertQuery = `
       INSERT INTO seating ("firstname", "lastname", "tablenumber")
       VALUES 
-('Hethirajan','Chakrapani',4),
+      ('Hethirajan','Chakrapani',4),
 ('Jaisankar','Chakravarthy',4),
 ('Naina','Chipalkatti',4),
 ('Thenammai','Chockalingam',4),
