@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
-import insertData from './controllers/insertData';  // Import the insertData function
+import insertData from './controllers/insertData.js';  // Import the insertData function
 
 dotenv.config();
 const app = express();
