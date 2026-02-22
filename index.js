@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
-import insertData from './controllers/insertData.js';  // Import the insertData function
+import insertData from '/controllers/insertData.js';  // Import the insertData function
 
 dotenv.config();
 const app = express();
@@ -122,4 +122,5 @@ app.get('/api/table/:tableNumber', async (req, res) => {
 });
 
 const port = process.env.PORT || 3000;
+
 app.listen(port, () => console.log(`Server running on port ${port}`));
