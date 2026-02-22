@@ -63,14 +63,22 @@ app.get('/api/insert-data', async (req, res) => {
   const insertQuery = `
       INSERT INTO seating ("firstname", "lastname", "tablenumber")
       VALUES 
-('Manikandan','Dhanuskodi',5),
-('Ravi','Dinakaran',5),
-('Kripa','Dinesh',5),
-('Murugesan','Diraviam',5),
-('Alex','Dobner',5),
-('Ravi','Dudhalur',5),
-('Emily','Frank',5),
-('Yochana','Gavva',5)
+('Shobha','Giridhar',6),
+('Torianne','Greene',6),
+('Stephen','Greene',6),
+('Marie's','Guest',6),
+('Krishna','Gurusamy',6),
+('Donald','Halpern',6),
+('Fareedah','Haroun',6),
+('Ashwini','Hassija',6),
+('Aashil','Hassija',7),
+('Anaga','Hethirajan',7),
+('Megan','Houlihan',7),
+('Neela','Jaisankar',7),
+('Viswa','Jaisankar',7),
+('Krishna','Jaisankar',7),
+('Nelson','Joseph',7),
+('Brinda','Kalaiyarasan',7)
       ON CONFLICT DO NOTHING;
   `;
 
