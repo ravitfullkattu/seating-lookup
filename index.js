@@ -153,6 +153,20 @@ app.get('/api/insert-data', async (req, res) => {
 //});
 
 
+app.get('/api/new-data', async (req, res) => {
+  try {
+    const result = await pool.query(`
+      SELECT "firstname", "lastname", "tablenumber"
+      FROM seating
+      ORDER BY "lastname" ASC
+    `);
+
+    res.json(result.rows);
+  } catch (err) {
+    console.error('Database query failed:', err);
+    res.status(500).json({ error: 'Database query failed' });
+  }
+});
 
 // Search by Name
 app.get('/api/people', async (req, res) => {
