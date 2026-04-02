@@ -169,6 +169,19 @@ app.delete('/api/delete-data', async (req, res) => {
   }
 });
 
+app.get('/api/dump-data', async (req, res) => {
+  try {
+    await pool.query(`TRUNCATE TABLE seating`);
+
+    res.json({
+      message: 'All records deleted successfully'
+    });
+  } catch (err) {
+    console.error('Truncate failed:', err);
+    res.status(500).json({ error: 'Truncate failed' });
+  }
+});
+
 app.get('/api/new-data', async (req, res) => {
   try {
     const result = await pool.query(`
