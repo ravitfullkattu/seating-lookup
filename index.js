@@ -152,6 +152,22 @@ app.get('/api/insert-data', async (req, res) => {
 //  }
 //});
 
+app.delete('/api/delete-data', async (req, res) => {
+  try {
+    const result = await pool.query(`
+      DELETE FROM seating
+      RETURNING *
+    `);
+
+    res.json({
+      message: 'All records deleted successfully',
+      deletedCount: result.rowCount
+    });
+  } catch (err) {
+    console.error('Delete all query failed:', err);
+    res.status(500).json({ error: 'Delete all query failed' });
+  }
+});
 
 app.get('/api/new-data', async (req, res) => {
   try {
