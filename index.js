@@ -258,7 +258,7 @@ app.get('/api/insert-data', async (req, res) => {
 ('Chittal','Achi',17),
 ('Hethirajan','Chakrapani',17),
 ('Anaga','Hethirajan',17),
-('Ramkumar','Venugopal',17),
+('Ramkumar','Venugopal',17)
       ON CONFLICT DO NOTHING;
   `;
 
